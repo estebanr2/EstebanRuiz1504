@@ -1,0 +1,68 @@
+Analisis Esteban Ruiz 545743
+
+Enreada: Tamañi:Un entero positivo mayor que 1
+
+Salida:
+
+Una cuadrícula generada aleatoriamente con números, símbolos o letras.
+Un mensaje indicando si el usuario adivinó correctamente el valor oculto.
+Una pregunta para jugar nuevamente.
+Proceso:
+
+Variables:
+ Variables de entrada:
+
+tamaño: Un entero positivo mayor que 1, proporcionado por el usuario.
+
+
+grid: Una matriz de tamaño x tamaño que representa la cuadrícula del juego.
+valores: Una lista o matriz que contiene los valores aleatorios (números, símbolos o letras) para llenar la cuadrícula.
+row: Un entero que representa el índice de fila de la celda seleccionada aleatoriamente.
+col: Un entero que representa el índice de columna de la celda seleccionada aleatoriamente.
+hidden_value: El valor original de la celda seleccionada aleatoriamente, que se oculta después de un tiempo.
+timer: Un objeto de temporizador que se activa al mostrar la cuadrícula y se apaga después del tiempo establecido (tamaño * 3 segundos).
+play_again: Una variable que almacena la respuesta del usuario a la pregunta de si desea jugar nuevamente (y/n).
+
+
+Proceso
+
+Solicitar al usuario que ingrese un entero positivo mayor que 1 
+Validar la entrada para asegurar que sea un entero válido dentro del rango especificado.
+Crear la cuadrícula:
+
+Crear una matriz de tamaño x tamaño para representar la cuadrícula.
+Generar valores aleatorios (números, símbolos o letras) y poblar las celdas de la cuadrícula.
+Mostrar la cuadrícula:
+
+Limpiar la pantalla.
+Mostrar la cuadrícula al usuario.
+Establecer el temporizador:
+
+Iniciar un temporizador basado en la entrada del usuario (tamaño * 3 segundos).
+Ocultar un valor aleatorio:
+
+Una vez que el temporizador expire:
+Seleccionar aleatoriamente una celda de la cuadrícula.
+Guardar el valor de la celda seleccionada.
+Reemplazar el valor de la celda seleccionada con un marcador de posición (ej., "*", "_").
+Pedir la respuesta:
+
+Solicitar al usuario que ingrese el valor que cree que estaba oculto.
+Comprobar la respuesta:
+
+Comparar la respuesta del usuario con el valor oculto guardado.
+Respuesta correcta:
+
+Si la respuesta es correcta:
+Mostrar un mensaje indicando que el usuario adivinó correctamente.
+Preguntar al usuario si quiere jugar nuevamente.
+Si sí, volver al paso 1.
+Si no, terminar el juego.
+Respuesta incorrecta:
+
+Si la respuesta es incorrecta:
+Mostrar un mensaje indicando que el usuario se equivocó.
+Revelar el valor oculto.
+Preguntar al usuario si quiere jugar nuevamente.
+Si sí, volver al paso 1.
+Si no, terminar el juego.
