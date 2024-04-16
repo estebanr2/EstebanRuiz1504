@@ -1,0 +1,56 @@
+declare size integer
+declare grid[][string]
+declare values array of char
+declare row, col, hidden_value integer
+
+function generate_grid(size):
+  grid = [[] for i in range(size)]
+  for i in range(size):
+    for j in range(size):
+      values = concat(uppercase_letters, lowercase_letters, convert(integer_array, range(0, 10)))
+      shuffle(values)
+      grid[i][j] = pop(values)
+  return grid
+
+function display_grid(grid):
+  for row in grid:
+    display(join(row, " "))
+
+function hide_random_value(grid):
+  if grid is null then
+    return null
+  row = random(0, size(grid) - 1)
+  col = random(0, size(grid[0]) - 1)
+  hidden_value = grid[row][col]
+  grid[row][col] = "*"
+  return hidden_value
+
+while true do
+  repeat
+    input size
+  until size > 1
+
+  grid = generate_grid(size)
+  if grid is null then
+    display("error generating grid. try a smaller size.")
+    continue
+  endif
+
+  display_grid(grid)
+  sleep(size * 3)
+
+  hidden_value = hide_random_value(grid)
+  display_grid(grid)
+
+  input guess
+  if guess == convert(string, hidden_value) then
+    display("correct! you found the hidden value.")
+  else
+    display("incorrect. the value was", hidden_value)
+  endif
+
+  input play_again
+  if lower(play_again) <> "s" then
+    break
+  endif
+endwhile
